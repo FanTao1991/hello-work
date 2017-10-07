@@ -243,23 +243,6 @@ class A_exit_shop extends CI_Controller {
                                     ->order_by("userinfo.dateline","DESC")
                                     ->limit(5,($num-1)*5)
                                     ->get()->result_array();
-
-        /*$user_arrs = array();
-        for($i=0;$i<count($userinfo_arr);$i++){
-            $user = array_rand($userinfo_arr); 
-            $user_arrs[] = $user;
-            if($i==6){
-                break;
-            }
-        }
-        
-        $user = array_unique($user_arrs);
-
-        $user_arr = array();
-
-        foreach ($user as  $value) {
-            $user_arr[] = $userinfo_arr[$value];
-        }*/
         
         $look_merchant = array_merge($look_merchant_arr,$userinfo_arr);
 
@@ -283,8 +266,9 @@ class A_exit_shop extends CI_Controller {
 
         $data['look_merchant_share'] = "http://www.ihouser.cn/best_exit/best_exit/admin/c_share/merchant_share/$exit_position/$userid/$merchant_id/$address";
 
-        resjson(303,"查看商户成功",$data);
+        
     }
 
-    
+    /*========================================================================================================================*/
+    //这就是个问题添加
 }
