@@ -2,23 +2,6 @@
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 
-/*
-|---------------------------------------------------------------------------------------
-| [最佳出口 后台管理系统] (C)2017 Created by PhpStorm 2016.1版本
-|---------------------------------------------------------------------------------------
-| 文件描述(c_login.php): 
-|---------------------------------------------------------------------------------------
-| 详情: 
-| 主要负责登录的模块
-|
-|---------------------------------------------------------------------------------------
-| 作者:   fantao
-| 邮箱:   fantao@qingter.com
-| 时间:   17/1/9 下午10:33
-| 文件版本号:  0.0.1 beta
-|
-*/
-
 class C_login extends CI_Controller {
 
     //官方给的写法,构造函数
@@ -35,20 +18,7 @@ class C_login extends CI_Controller {
     }
 
 
-    /**
-     * @api {POST} /index 最佳出口后台登录
-     * @apiGroup c_login (控制器)
-     * @apiVersion 0.0.1
-     * @apiDescription 用于显示最佳出口后台的登录页面
-     * @apiSuccess {String} speed 登录随机验证码字符串
-     * @apiSuccess {String} word  随机生成的4位验证码字符串
-     * @apiSuccess {String} img_path  存储验证码的路径
-     * @apiSuccess {String} img_path  加载验证码的url地址
-     * @apiSuccess {num} img_width  验证码的宽
-     * @apiSuccess {num} img_height 验证码的高
-     * @apiSuccess {num} expiration 验证码失效的时间(秒)
-     * @apiSuccess {array} captcha 产生验证码的一维数组
-     */ 
+    
     public function index()
     {
         //载入验证码辅助函数
@@ -78,20 +48,7 @@ class C_login extends CI_Controller {
         $this->load->view('best_exit/V_login',$data);
     }
 
-    /**
-     * @api {POST} /captcha 获取新的验证码
-     * @apiGroup c_login (控制器)
-     * @apiVersion 0.0.1
-     * @apiDescription 点击验证码获取新的验证码
-     * @apiSuccess {String} speed 登录随机验证码字符串
-     * @apiSuccess {String} word  随机生成的4位验证码字符串
-     * @apiSuccess {String} img_path  存储验证码的路径
-     * @apiSuccess {String} img_path  加载验证码的url地址
-     * @apiSuccess {num} img_width  验证码的宽
-     * @apiSuccess {num} img_height 验证码的高
-     * @apiSuccess {num} expiration 验证码失效的时间(秒)
-     * @apiSuccess {array} captcha 产生验证码的一维数组
-     */ 
+    
 
     public function captcha(){
         //载入验证码辅助函数
@@ -119,14 +76,7 @@ class C_login extends CI_Controller {
         echo  $cap['image'].'&&&'.$cap['word'] ;
     }
 
-     /**
-     * @api {POST} /check 后台管理系统的登录验证 
-     * @apiGroup c_login (控制器)
-     * @apiVersion 0.0.1
-     * @apiDescription 后台管理系统的管理人员登录验证
-     * @apiParam {String} username 后台登录的用户名 
-     * @apiParam {bool} result 通过用户名判断是否有该用户，或该用户是否被禁用状态
-     */ 
+     
 
     public function check(){
         
@@ -149,16 +99,7 @@ class C_login extends CI_Controller {
     }
 
 
-     /**
-     * @api {POST} /login  后台管理系统的登录获取信息
-     * @apiGroup c_login (控制器)
-     * @apiVersion 0.0.1
-     * @apiDescription 用于获取后台系统登录的信息
-     * @apiParam {String} username 后台登录系统的用户名 
-     * @apiParam {String} password 后台登录系统的密码
-     * @apiParam {bool} result 判断当前用户是否为后台管理人员 
-     *     true:是管理人员；false:不是管理人员
-     */ 
+    
 
     public function login() 
     {
@@ -199,12 +140,7 @@ class C_login extends CI_Controller {
         }
     }
     
-    /**
-     * @api {POST} /login_out 后台管理系统的退出 
-     * @apiGroup c_login (控制器)
-     * @apiVersion 0.0.1
-     * @apiDescription 用于后台管理系统的退出
-     */ 
+    
     public function login_out(){
             //销毁session信息
             session_destroy();
@@ -213,12 +149,7 @@ class C_login extends CI_Controller {
             //$this->load->view("best_exit/v_login");       
     } 
     
-    /**
-     * @api {POST} /rem_password 后台管理系统个人密码修改
-     * @apiGroup c_login (控制器)
-     * @apiVersion 0.0.1
-     * @apiDescription 用于后台管理系统的个人密码修改
-     */ 
+    
     public function rem_password($memberid){
          //获取当前管理员的memberid
         //$memberid = int($memberid);
